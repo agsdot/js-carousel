@@ -1,0 +1,24 @@
+#container {
+	overflow: hidden;
+	width: 1024px;
+	height: 365px;
+	border: 1px solid gray;
+	margin: auto;
+}
+
+
+#slider img {
+	float: left;
+}
+
+#controls {
+	margin: auto;
+	width: 200px;
+	text-align: center;
+}
+
+
+
+
+
+
