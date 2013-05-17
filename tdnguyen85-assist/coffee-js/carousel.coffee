@@ -1,20 +1,31 @@
 image = document.getElementById 'image'
-imageArrayTag = document.getElementsByTagName 'img'
+imageArrayTag = document.getElementsByTagName('img')
 imageArray = []
-tracker
-timer
+tracker = undefined
+timer = undefined
 
-for i in [0..imageArrayTag.length]
+# for i in [0..imageArrayTag.length]
+#   imageArray.push imageArrayTag[i].src
+
+# for i in [0..imageArrayTag.length] by 1
+#   imageArray.push imageArrayTag[i].src
+
+i = 0
+while i < imageArrayTag.length
   imageArray.push imageArrayTag[i].src
+  i += 1
 
-fadeIn() ->
+fadeIn = ->
   if image.style.opacity >= 1
     return
   image.style.opacity = parseFloat(image.style.opacity, 10) + 0.01
 
-next() ->
+# next() ->
+next = ->
   image.style.opacity = 0
-  for i in [0..imageArray.length]
+  # for i in [0..imageArray.length]
+  for i in [0..imageArray.length] by 1
+
     if image.src == imageArray[i]
       if image.src == imageArray[imageArray.length - 1 ]
         tracker = imageArray[0]
@@ -22,9 +33,12 @@ next() ->
         tracker = imageArray[i+1]
   image.src = tracker
 
-previous() ->
+# previous() ->
+
+previous = ->
   image.style.opacity = 0
-  for i in [0..imageArray.length]
+  # for i in [0..imageArray.length]
+  for i in [0..imageArray.length] by 1
     if image.src == imageArray[0]
       if image.src == imageArray[0]
         tracker = imageArray[imageArray.length -1]
@@ -46,3 +60,6 @@ b.onclick = ->
   timer = setInterval fadeIn, 10
   previous()
 
+
+
+# http://discontinuously.com/2012/05/iteration-in-coffeescript/
